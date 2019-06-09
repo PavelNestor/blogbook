@@ -1,0 +1,30 @@
+$primaryColor: rgb(43, 36, 136);
+$secondaryColor: rgb(226, 114, 9);
+@import 'reset';
+@import 'grid';
+@import 'typography';
+@import 'forms';
+  
+html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  color: black;
+  background-color: lighten($color: lightgray, $amount: 15);
+  padding-top: 65px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@import 'header';
+@import 'main';
+@import 'footer';
+@import 'components/post';
+@import 'components/auth';
