@@ -10,7 +10,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'blogbook' });
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('index', {
+    user: {
+      id,
+      login
+    }
+  });
 });
 
 module.exports = router;

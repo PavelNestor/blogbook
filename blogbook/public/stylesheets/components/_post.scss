@@ -26,3 +26,36 @@
         justify-content: space-between;
     }
 }
+
+.add-post {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid gray;
+    min-height: 100px;
+    background-color: white;
+    border-radius: $borderRadius;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    form {
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                margin-left: 30px;
+            }
+        }
+        #post-body {
+            min-height: 200px !important;
+            background-color: #fff !important;
+            border: 1px solid grey !important;
+            padding: 8px 10px;
+            outline: none;
+        }
+    }
+}

@@ -7,12 +7,27 @@ const sassMiddleware = require('node-sass-middleware');
 // const app = require('./routes/index');
 const database = require('./database');
 const config = require('./config');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const postRouter = require('./routes/post');
 
 // express
 const app = express();
+
+app.use(
+  session({
+    secret: config.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
+  })
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routers
 app.use('/', indexRouter);
 app.use('/api/auth', authRouter);
+app.use('/post', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
