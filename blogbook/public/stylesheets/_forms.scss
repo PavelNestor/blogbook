@@ -69,7 +69,7 @@ textarea {
         background-color: lightgrey;
     }
 
-    &::hover {
+    &:hover {
         box-shadow: 0;
     }
 
@@ -93,4 +93,16 @@ input {
 textarea {
     padding: 8px 10px;
     min-height: 80px;
+}
+
+input,
+textarea {
+    &.error {
+        background-color: lighten($errorColor, 50%);
+        border-color: $errorColor;
+        color: $errorColor;
+        &::placeholder {
+            color: lighten($errorColor, 50%);
+        }
+    }
 }

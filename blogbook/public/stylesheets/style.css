@@ -45,6 +45,28 @@ p {
 a {
   text-decoration: none; }
 
+small,
+.font_small {
+  font-size: 0.8em; }
+
+div.success,
+p.success {
+  background-color: #f3feec;
+  border: 1px solid #5ce209;
+  font-size: 0.8em;
+  padding: 8px;
+  color: #5ce209;
+  border-radius: 2px; }
+
+div.error,
+p.error {
+  background-color: white;
+  border: 1px solid #e3573e;
+  font-size: 0.8em;
+  padding: 8px;
+  color: #e3573e;
+  border-radius: 2px; }
+
 form {
   display: flex;
   flex-direction: column; }
@@ -103,8 +125,8 @@ textarea {
   input:disabled,
   textarea:disabled {
     background-color: lightgrey; }
-  input::hover,
-  textarea::hover {
+  input:hover,
+  textarea:hover {
     box-shadow: 0; }
   input:focus,
   textarea:focus {
@@ -123,6 +145,15 @@ input {
 textarea {
   padding: 8px 10px;
   min-height: 80px; }
+
+input.error,
+textarea.error {
+  background-color: white;
+  border-color: #e3573e;
+  color: #e3573e; }
+  input.error::placeholder,
+  textarea.error::placeholder {
+    color: white; }
 
 html {
   display: flex;
