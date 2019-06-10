@@ -99,7 +99,7 @@ $(function () {
 $(function() {
   let editor = new MediumEditor('#post-body', {
     placeholder: {
-      text: 'sss',
+      text: '',
       hideOnClick: true
     }
   });
@@ -107,10 +107,11 @@ $(function() {
   // publish
   $('.publish-button').on('click', function(e) {
     e.preventDefault();
+console.log($('#post-text').val());
 
     var data = {
       title: $('#post-title').val(),
-      body: $('#post-body').html()
+      body: $('#post-text').val()
     };
 
     $.ajax({
@@ -121,12 +122,12 @@ $(function() {
     }).done(function(data) {
       console.log(data);
       if (!data.ok) {
-        // $('.register h2').after('<p class="error">' + data.error + '</p>');
-        // if (data.fields) {
-        //   data.fields.forEach(function(item) {
-        //     $('input[name=' + item + ']').addClass('error');
-        //   });
-        // }
+        $('.post-form h2').after('<p class="error">' + data.error + '</p>');
+        if (data.fields) {
+          data.fields.forEach(function(item) {
+            $('#post-' + item).addClass('error');
+          });
+        }
       } else {
         // $('.register h2').after('<p class="success">Отлично!</p>');
         // $(location).attr('href', '/');

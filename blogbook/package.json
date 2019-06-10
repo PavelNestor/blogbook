@@ -17,8 +17,10 @@
     "http-errors": "~1.6.3",
     "medium-editor": "^5.23.3",
     "mongoose": "^5.5.14",
+    "mongoose-url-slugs": "^1.0.2",
     "morgan": "~1.9.1",
     "node-sass-middleware": "0.11.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "transliter": "^2.2.1"
   }
 }
