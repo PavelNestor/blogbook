@@ -11,6 +11,10 @@ const schema = new Schema(
     },
     body: {
       type: String
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   },
   {
@@ -21,7 +25,7 @@ const schema = new Schema(
 schema.plugin(
   URLSlugs('title', {
     field: 'url',
-    generator: text => tr.slyglify(text)
+    generator: text => tr.slugify(text)
   })
 );
 

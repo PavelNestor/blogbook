@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const postRouter = require('./routes/post');
+const archiveRouter = require('./routes/archive');
 
 // express
 const app = express();
@@ -49,6 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/auth', authRouter);
 app.use('/post', postRouter);
+app.use('/archive', archiveRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
